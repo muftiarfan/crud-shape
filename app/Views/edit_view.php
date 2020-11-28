@@ -22,7 +22,7 @@
   <div class="container mt-5">
     <form method="post" id="update_patient" name="update_patient" 
     action="<?= site_url('/update') ?>">
-      <input type="hidden" name="id" id="id" value="<?php echo $patient_obj['ID']; ?>">
+      <input type="hidden" name="ID" id="id" value="<?php echo $patient_obj['ID']; ?>">
 
       <div class="form-group">
         <label>Name</label>
