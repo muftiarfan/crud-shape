@@ -6,7 +6,7 @@ class ShapeController extends Controller
 {
 
     public function index(){
-        $image = imagecreatetruecolor(250, 250);
+        $image = imagecreatetruecolor(250, 250); //generate image object
 
         $points_sq = array(
             20, // x1, top-left
@@ -24,17 +24,9 @@ class ShapeController extends Controller
       
         $color = imagecolorallocate($image, 255, 45, 255);
         $color_circle = imagecolorallocate($image, 0, 255, 255);
-
-
-        imagefilledpolygon($image, $points_sq, 4, $color );
-        imagefilledellipse ($image, 120, 120, 135, 135, $color_circle);
-        
-        $color_sq2 = imagecolorallocate($image, 77, 90, 45);
-        $color_hex = imagecolorallocate($image, 255, 255, 45);
-
-
-        
-        imagerectangle($image, 80, 80, 160, 160, $color_sq2 );
+        imagefilledpolygon($image, $points_sq, 4, $color ); //outside square
+        imagefilledellipse ($image, 120, 120, 135, 135, $color_circle); //circle        
+        imagerectangle($image, 80, 80, 160, 160, $color_sq2 ); //sq within circle
         $this->response->setHeader('Content-type', 'image/png');
         imagepng($image);
         imagedestroy($image);
